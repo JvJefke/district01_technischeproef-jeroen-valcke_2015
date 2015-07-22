@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./style/style.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-app="app" ng-controller="adminCtrl">
+    <div id="container">
+        <h1>Admin panel</h1>
+        <div class="tabContainer">
+            <ul class="tab">
+                <li ng-class="isProductActive" ng-click="changeTab(true)">
+                    Producten
+                </li>
+                <li ng-class="isOrderActive" ng-click="changeTab(false)">
+                    Bestellingen
+                </li>
+            </ul>
+        </div>
+        <div class="content admin_producten" ng-show="showProducten">
+            <ul class="list medium_bottom_margin">
+                <li ng-repeat="product in producten | filter:search">
+                    <div class="productName" ng-hide="product.show" ng-bind="product.name"></div>
+                    <div class="productChangeField" ng-show="product.show">
+                        <input  class="productName" type="text" ng-model="product.name">
+                    </div>
+                    <div class="productEdit">
+                        <button ng-show="product.show" ng-click="changeProduct(product)">Go</button>
+                        <button ng-hide="product.show" ng-click="editProduct(product)">Edit</button>
+                    </div>
+                    <div class="productDelete">
+                        <button ng-click="deleteProduct(product, $index)">Delete</button>
+                    </div>
+                </li>
+            </ul>
+            <div class="new">
+                <div class="small_bottom_margin">Nieuw product</div>
+                <input type="text" ng-model="newProduct" class="small_bottom_margin">
+                <button class="add_order btn btn-primary" ng-click="addNewProduct()">Add product</button>
+            </div>
+        </div>
+        <div class="content admin_bestellingen" ng-hide="showProducten"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="./app/app.js"></script>
+    <script src="./app/admin/adminCtrl.js"></script>
+    <script src="./app/dataService.js"></script>
+</body>
+</html>

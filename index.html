@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./style/style.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-app="app" ng-controller="mainOrderCtrl">
+    <div id="container">
+        <div id="content">
+            <div class="notification" ng-class="notificationClass" ng-show="showNotification" ng-bind="notification"></div>
+            <h1>Digital Bar</h1>
+            <section class="name">
+                <p>
+                    Tell me, what is your name?
+                </p>
+                <input type="text" ng-model="name" class="small_bottom_margin" placeholder="Your name">
+                <p class="small_bottom_margin" ng-bind="'Hello ' + name + ', order some drinks!'" ng-if="name">
+                </p>
+            </section>
+            <section class="order">
+                <div class="search small_bottom_margin">
+                    <input type="text" ng-model="search" placeholder="Zoek een product"/>
+                </div>
+                <div class="list">
+                    <ul class="medium_bottom_margin">
+                        <li ng-repeat="product in products | filter:search">
+                            <div class="productName" ng-bind="product.name"></div>
+                            <div class="productValue" ng-bind="product.__v"></div>
+                            <div class="productControls">
+                                <button class="product_plus" ng-click="plusProductValue(product)">+</button>
+                                <button class="product_min" ng-click="minProductValue(product)">-</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="send medium_bottom_margin">
+                    <button class="send_order btn btn-primary" ng-click="sendOrder()">Send our order</button>
+                </div>
+                <div class="new">
+                    <div class="small_bottom_margin">Nieuw product</div>
+                    <input type="text" ng-model="newProduct" class="small_bottom_margin">
+                    <button class="add_order btn btn-primary" ng-click="addNewProduct()">Add product</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="./app/app.js"></script>
+    <script src="./app/order/mainOrderCtrl.js"></script>
+    <script src="./app/dataService.js"></script>
+</body>
+</html>

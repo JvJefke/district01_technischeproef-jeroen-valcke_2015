@@ -1,0 +1,97 @@
+body,html,ul,li{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    width: 382px;
+    margin:auto;
+    text-align: center;
+}
+.list li{
+    padding: 5px;
+    width: 382px;
+    height: 40px;
+    list-style: none;
+    border: 1px solid #aaaaaa;
+    border-width: 1px 1px 0 1px;
+}
+.list li:first-child{
+    border-radius: 5px 5px 0 0;
+}
+.list li:last-child{
+    border-radius: 0 0 5px 5px;
+    border-width: 1px;
+}
+.list li>div{
+    float: left;
+    width: 60px;
+}
+
+.list li>div:first-child{
+    width: 250px;
+    text-align: left;
+}
+
+/*.admin_producten .list li>div:nth-child(2)>input{*/
+    /*display: none;*/
+/*}*/
+
+.small_bottom_margin{
+    margin-bottom: 10px;
+}
+
+.medium_bottom_margin{
+    margin-bottom: 15px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 5px;
+}
+
+.name>input{
+    width: 50%;
+}
+
+.notification{
+    border-width: 0 2px 2px 2px;
+    border-style: solid;
+    width: 100%;
+    padding: 5px;
+    color:white;
+    border-radius: 0 0 5px 5px;
+}
+
+.good_notification{
+    border-color: #69ca2a;
+    background-color: #74c438;
+}
+
+.bad_notification{
+    border-color: #da4436;
+    background-color: #ce3200;
+}
+
+.tab li{
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    text-align: left;
+    float: left;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px 5px 0 0;
+}
+
+.content{
+    float: left;
+}
+
+.tab_active{
+    background-color: #337ab7;
+    color: white;
+}
+
+.productNameEdit{
+    width: 250px!important;
+}
